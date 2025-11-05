@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manifesto Angelico · Claim the Eternal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Manifesto Angelico – artifact-driven clothing for those who refuse to be ordinary. Claim the eternal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-soft: #0b0b12;
+      --accent: #f5c76a;
+      --accent-soft: rgba(245, 199, 106, 0.12);
+      --text-main: #f8f8fb;
+      --text-muted: #9a9ab3;
+      --border-subtle: rgba(255,255,255,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151520 0, #050509 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 18px 56px;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(5,5,9,0.9);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .logo-mark {
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .logo-main {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 11px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: rgba(0,0,0,0.4);
+      text-decoration: none;
+      transition: background 0.2s ease-out, transform 0.15s ease-out;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(5,5,9,0.9);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 14px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(245,199,106,0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 48px);
+      line-height: 1.04;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      background: linear-gradient(135deg, #f5c76a, #f7e5b3);
+      color: #101010;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease-out, box-shadow 0.2s ease-out;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    }
+
+    .btn-primary span.arrow {
+      font-size: 16px;
+      transform: translateY(1px);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* HERO CARD / ARTIFACT PANEL */
+    .hero-card {
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at 0% 0%, rgba(245,199,106,0.09), transparent 45%),
+                  radial-gradient(circle at 100% 100%, rgba(255,255,255,0.06), transparent 50%),
+                  #050509;
+      padding: 18px 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-card-name {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      margin-bottom: 18px;
+    }
+
+    .hero-card-name span {
+      color: var(--accent);
+    }
+
+    .hero-card-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      max-width: 320px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 10px;
+      opacity: 0.75;
+    }
+
+    .hero-meta-value {
+      margin-top: 2px;
+      color: var(--text-main);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.42;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(245,199,106,0.08) 0, transparent 55%),
+        radial-gradient(circle at 120% 80%, rgba(245,199,106,0.16) 0, transparent 60%);
+      mix-blend-mode: screen;
+    }
+
+    /* ARTIFACT GRID */
+    .section {
+      margin-top: 56px;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 320px;
+      line-height: 1.5;
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .artifact-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(145deg, #050509, #0b0b12);
+      padding: 14px 14px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .artifact-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .artifact-name {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+
+    .artifact-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .artifact-price {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .artifact-pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    /* MANIFESTO TEXT */
+    .manifesto {
+      margin-top: 56px;
+      border-radius: 22px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(245,199,106,0.09), transparent 55%),
+                  #050509;
+      padding: 22px 20px 22px;
+    }
+
+    .manifesto-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 12px;
+    }
+
+    .manifesto-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+
+    .manifesto-body strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 11px;
+    }
+
+    @media (max-width: 780px) {
+      nav { border-radius: 18px; }
+      .hero {
+        grid-template-columns: 1fr;
+        margin-top: 28px;
+      }
+      .hero-card { order: -1; }
+      .section-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <div>
+        <div class="logo-mark">RITUAL APPAREL</div>
+        <div class="logo-main">MANIFESTO ANGELICO</div>
+      </div>
+      <div class="nav-links">
+        <a href="#artifacts">Artifacts</a>
+        <a href="#manifesto">Manifesto</a>
+      </div>
+      <a class="nav-cta" href="https://manifestoangelico.co.uk" target="_blank" rel="noopener">
+        Enter Store
+      </a>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badge">
+            <div class="badge-dot"></div>
+            INAUGURAL DROP · LIVE
+          </div>
+          <h1 class="hero-title">
+            MANIFESTO<br>ANGELICO
+          </h1>
+          <p class="hero-subtitle">
+            Artifact-driven apparel for those who treat clothing as a ritual, not a trend. One brand, one mythos, limited runs.
+          </p>
+          <div class="hero-cta-row">
+            <a class="btn-primary" href="https://manifestoangelico.co.uk" target="_blank" rel="noopener">
+              <span>Claim the Eternal</span>
+              <span class="arrow">↗</span>
+            </a>
+            <span class="hero-note">
+              <strong>Artifact 008</strong> · first wave initiates only
+            </span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-orbit"></div>
+          <div class="hero-card-tag">Featured Artifact</div>
+          <div class="hero-card-name">
+            008 · <span>Azure Oath Hoodie</span>
+          </div>
+          <p class="hero-card-body">
+            Deep black base, celestial blue detailing. Built as a wearable contract: once you put it on, you’ve sworn to never return to average.
+          </p>
+          <div class="hero-meta-row">
+            <div>
+              <div class="hero-meta-label">Ritual Class</div>
+              <div class="hero-meta-value">Foundation Tier</div>
+            </div>
+            <div>
+              <div class="hero-meta-label">Drop Status</div>
+              <div class="hero-meta-value">Limited Run</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="artifacts" class="section">
+        <div class="section-title-row">
+          <div>
+            <div class="section-kicker">Artifacts</div>
+            <h2 class="section-title">The Inaugural Line</h2>
+          </div>
+          <p class="section-sub">
+            Each piece is numbered as an artifact — not just “a hoodie”. Low-noise branding, high-signal meaning.
+          </p>
+        </div>
+
+        <div class="artifact-grid">
+          <article class="artifact-card">
+            <div class="artifact-label">Artifact 008</div>
+            <div class="artifact-name">Azure Oath Hoodie</div>
+            <div class="artifact-meta">
+              <span class="artifact-price">£XX</span>
+              <span class="artifact-pill">Foundation</span>
+            </div>
+          </article>
+
+          <article class="artifact-card">
+            <div class="artifact-label">Artifact 011</div>
+            <div class="artifact-name">Midnight Covenant Tee</div>
+            <div class="artifact-meta">
+              <span class="artifact-price">£XX</span>
+              <span class="artifact-pill">Core</span>
+            </div>
+          </article>
+
+          <article class="artifact-card">
+            <div class="artifact-label">Artifact 015</div>
+            <div class="artifact-name">Ascension Track Pants</div>
+            <div class="artifact-meta">
+              <span class="artifact-price">£XX</span>
+              <span class="artifact-pill">Ascension</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="manifesto" class="manifesto">
+        <h3 class="manifesto-title">The Manifesto</h3>
+        <p class="manifesto-body">
+          Fashion is loud but empty. Logos with nothing behind the eyes. <strong>Manifesto Angelico</strong> was built as the opposite:
+          a living document you wear on your body. Each artifact is a numbered statement, a quiet declaration that you do not belong
+          to the ordinary timeline.<br><br>
+          You are not buying “merch”. You are collecting scripture. One day, the early numbers will never be printed again.  
+          Until then, every drop is a chance to choose your side of the story.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <span>© Manifesto Angelico · All artifacts subject to scarcity.</span>
+      <span>Store: <a href="https://manifestoangelico.co.uk" target="_blank" rel="noopener">manifestoangelico.co.uk</a></span>
+    </footer>
+  </div>
+</body>
+</html>
